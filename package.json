@@ -7,7 +7,8 @@
     "start": "webpack --mode development --watch",
     "build": "webpack --mode=production --node-env=production",
     "serve": "webpack serve",
-    "server": "nodemon server/index.js"
+    "server": "nodemon server/index.js",
+    "watch": "webpack --watch"
   },
   "devDependencies": {
     "@babel/core": "^7.20.12",
