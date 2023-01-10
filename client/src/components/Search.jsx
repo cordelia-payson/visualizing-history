@@ -11,10 +11,15 @@ const Place = styled.div``;
 
 const Time = styled.div``;
 
-const SearchButton = styled.div``;
+const SearchButton = styled.button``;
 
-function Search() {
+function Search(props) {
+  const { searchDecade, setSearchDecade } = props;
   const [time, setTime] = useState('');
+
+  const handleSearch = () => {
+    setSearchDecade(time);
+  };
 
   return (
     <Container>
@@ -23,9 +28,9 @@ function Search() {
 
       <TimeMenu time={time} setTime={setTime} />
 
-      <SearchButton>Search</SearchButton>
+      <SearchButton onClick={() => handleSearch()}>Search</SearchButton>
     </Container>
   );
-};
+}
 
 export default Search;

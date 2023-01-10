@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Search from './Search.jsx';
 import PhotoFeed from './PhotoFeed.jsx';
+import { getImages } from '../api.js';
 
 const Container = styled.div`
   display: flex;
@@ -17,7 +18,15 @@ const TopBar = styled.div`
 const Title = styled.div``;
 
 function App() {
-  const three = 3;
+  const [images, setImages] = useState();
+  const [searchDecade, setSearchDecade] = useState('');
+
+  useEffect(() => {
+    if (searchDecade !== '') {
+      getImages(searchDecade);
+    }
+  }, [searchDecade]);
+
   return (
     <Container>
 
@@ -26,9 +35,9 @@ function App() {
 
         {/* liked photos */}
 
-        <Search />
+        <Search searchDecade={searchDecade} setSearchDecade={setSearchDecade} />
       </TopBar>
-
+      {/* if images === '' show something like 'pick a decade' */}
       <PhotoFeed />
 
     </Container>

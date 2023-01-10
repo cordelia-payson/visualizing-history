@@ -31,7 +31,7 @@ function TimeMenu(props) {
           value={time}
           onChange={handleChange}
         >
-          {decades.map((decade) => <Item value={decade}>{decade}</Item>)}
+          {decades.map((decade) => <Item value={decade} key={decade}>{decade}</Item>)}
         </Selected>
       </Form>
     </div>
