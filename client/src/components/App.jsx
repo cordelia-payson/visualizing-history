@@ -3,7 +3,11 @@ import styled from 'styled-components';
 import Search from './Search.jsx';
 import PhotoFeed from './PhotoFeed.jsx';
 
-const Container = styled.div``;
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+`;
 
 const TopBar = styled.div``;
 
