@@ -9,7 +9,10 @@ const Container = styled.div`
   width: 90%;
 `;
 
-const TopBar = styled.div``;
+const TopBar = styled.div`
+  display: flex;
+  flex-direction: column;
+`;
 
 const Title = styled.div``;
 

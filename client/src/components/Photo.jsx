@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import Masonry from '@mui/lab/Masonry';
 
 const ImageContainer = styled.div`
   max-width: 25%;
@@ -14,6 +13,8 @@ const Image = styled.img`
   display: block;
   width: 100%;
 `;
+
+const ImageBack = styled.div``;
 
 function Photo(props) {
   const { image } = props;
