@@ -13,7 +13,8 @@ const victoriaAlbertImages = async (decade) => {
       year_made_to: endYear,
       images_exist: 1,
       page_size: 100,
-      order_by: 'artist',
+      order_by: 'fields_populated',
+      kw_object_type: '-Drawing',
     },
   })
     .then((res) => res.data.records)
@@ -21,6 +22,7 @@ const victoriaAlbertImages = async (decade) => {
 };
 
 const formatVA = (records) => {
+  console.log(records);
   const formatted = [];
   records.forEach((record) => {
     const imageUrl = `${record._images._iiif_image_base_url}full/!700,400/0/default.jpg`;
