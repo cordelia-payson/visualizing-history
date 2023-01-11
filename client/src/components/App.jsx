@@ -23,7 +23,11 @@ function App() {
 
   useEffect(() => {
     if (searchDecade !== '') {
-      getImages(searchDecade);
+      getImages(searchDecade)
+        .then((res) => {
+          setImages(res);
+        })
+        .catch((err) => err);
     }
   }, [searchDecade]);
 
@@ -37,8 +41,8 @@ function App() {
 
         <Search searchDecade={searchDecade} setSearchDecade={setSearchDecade} />
       </TopBar>
-      {/* if images === '' show something like 'pick a decade' */}
-      <PhotoFeed />
+
+      {images ? <PhotoFeed images={images} /> : 'Pick a location and time period to see pictures!'}
 
     </Container>
   );

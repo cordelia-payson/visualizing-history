@@ -1,52 +1,42 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable import/prefer-default-export */
 import axios from 'axios';
 import queryString from 'query-string';
 
 const victoriaAlbertImages = async (decade) => {
-  let images = [];
-  // console.log('av request', decade);
   const startYear = Number(decade);
   const endYear = Number(decade) + 9;
-  // if multiple pages send another request for second page?
   return axios.get('https://api.vam.ac.uk/v2/objects/search', {
     params: {
       q_place_name: 'Britain',
       year_made_from: startYear,
       year_made_to: endYear,
       images_exist: 1,
-      page_size: 10,
+      page_size: 100,
+      order_by: 'artist',
     },
   })
-    .then((res) => {
-      console.log('response', res.data.records);
-      images = (res.data.records);
-    })
+    .then((res) => res.data.records)
     .catch((err) => err);
 };
 
-export const getImages = async (decade) => {
-  victoriaAlbertImages(decade);
+const formatVA = (records) => {
+  const formatted = [];
+  records.forEach((record) => {
+    const imageUrl = `${record._images._iiif_image_base_url}full/!700,400/0/default.jpg`;
+    const newRecord = {
+      image: imageUrl,
+      date: record._primaryDate,
+      artist: record._primaryMaker.name,
+      title: record._primaryTitle,
+    };
+    formatted.push(newRecord);
+  });
+  return formatted;
 };
-// va data
-// const vaInfo = {
-//   objectType
-// };
 
-// const victoriaAlbertImages = (decade) => {
-//   const images = [];
-//   const startYear = Number(decade);
-//   const endYear = Number(decade) + 9;
-//   const params = {
-//     q_place_name: 'Britain',
-//     year_made_from: startYear,
-//     year_made_to: endYear,
-//     images_exist: 1,
-//     page_size: 10,
-//   };
-//   const url = queryString.stringifyUrl({ url: 'https://api.vam.ac.uk/v2/objects/search', query: params });
-//   fetch(url)
-//     .then((response) => response.body.json)
-//     .then((data) => {
-
-//     })
-// };
+export const getImages = async (decade) => {
+  const records = await victoriaAlbertImages(decade);
+  const formatted = await formatVA(records);
+  return formatted;
+};

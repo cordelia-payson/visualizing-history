@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import Yith from '@yith/yith';
 
 const ImageContainer = styled.div`
   max-width: 25%;
@@ -22,7 +23,7 @@ function Photo(props) {
   return (
     <ImageContainer>
       <ImageFront>
-        <Image src={image} />
+        <Image src={image.image} />
       </ImageFront>
     </ImageContainer>
   );
