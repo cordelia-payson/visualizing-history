@@ -44,6 +44,7 @@ module.exports = {
     extensions: ['.ts', '.js'],
     alias: {
       '@mui/styled-engine': '@mui/styled-engine-sc',
+      react: path.resolve('./node_modules/react'),
     },
   },
 };

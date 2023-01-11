@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Masonry from '@mui/lab/Masonry';
+import Yith from '@yith/yith';
 import Photo from './Photo.jsx';
 
 const FeedContainer = styled.div`
@@ -77,14 +78,23 @@ function PhotoFeed() {
       title: 'Bike',
     },
   ];
+  // return (
+  //   <FeedContainer>
+  //     <Masonry columns={4} spacing={2}>
+  //       {images.map((image) => (
+  //         <Photo image={image.img} key={image.img} />
+  //       ))}
+  //     </Masonry>
+  //   </FeedContainer>
+  // );
+
   return (
-    <FeedContainer>
-      <Masonry columns={4} spacing={2}>
-        {images.map((image) => (
-          <Photo image={image.img} key={image.img} />
-        ))}
-      </Masonry>
-    </FeedContainer>
+    <div>
+      <Yith type="projection">
+        <Yith.Manifest id="https://iiif.vam.ac.uk/collections/O9138/manifest.json" />
+      </Yith>
+    </div>
+
   );
 }
 
