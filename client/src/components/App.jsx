@@ -20,16 +20,17 @@ const Title = styled.div``;
 function App() {
   const [images, setImages] = useState();
   const [searchDecade, setSearchDecade] = useState('');
+  const [searchCountry, setSearchCountry] = useState('');
 
   useEffect(() => {
-    if (searchDecade !== '') {
-      getImages(searchDecade)
+    if (searchDecade !== '' && searchCountry !== '') {
+      getImages(searchDecade, searchCountry)
         .then((res) => {
           setImages(res);
         })
         .catch((err) => err);
     }
-  }, [searchDecade]);
+  }, [searchDecade, searchCountry]);
 
   return (
     <Container>
@@ -39,7 +40,12 @@ function App() {
 
         {/* liked photos */}
 
-        <Search searchDecade={searchDecade} setSearchDecade={setSearchDecade} />
+        <Search
+          searchDecade={searchDecade}
+          setSearchDecade={setSearchDecade}
+          searchCountry={searchCountry}
+          setSearchCountry={setSearchCountry}
+        />
       </TopBar>
 
       {images ? <PhotoFeed images={images} /> : 'Pick a location and time period to see pictures!'}

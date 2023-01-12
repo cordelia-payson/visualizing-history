@@ -3,12 +3,13 @@
 import axios from 'axios';
 import queryString from 'query-string';
 
-const victoriaAlbertImages = async (decade) => {
+const victoriaAlbertImages = async (decade, country) => {
+  let resultsNum;
   const startYear = Number(decade);
   const endYear = Number(decade) + 9;
   return axios.get('https://api.vam.ac.uk/v2/objects/search', {
     params: {
-      q_place_name: 'Britain',
+      q_place_name: country,
       year_made_from: startYear,
       year_made_to: endYear,
       images_exist: 1,
@@ -17,12 +18,16 @@ const victoriaAlbertImages = async (decade) => {
       kw_object_type: '-Drawing',
     },
   })
-    .then((res) => res.data.records)
+    .then((res) => {
+      // if (res.data.records.info.record_count > 100) {
+      //   resultsNum = res.data.records.info.record_count;
+      // }
+      return res.data.records;
+    })
     .catch((err) => err);
 };
 
 const formatVA = (records) => {
-  console.log(records);
   const formatted = [];
   records.forEach((record) => {
     const imageUrl = `${record._images._iiif_image_base_url}full/!700,400/0/default.jpg`;
@@ -37,8 +42,8 @@ const formatVA = (records) => {
   return formatted;
 };
 
-export const getImages = async (decade) => {
-  const records = await victoriaAlbertImages(decade);
+export const getImages = async (decade, country) => {
+  const records = await victoriaAlbertImages(decade, country);
   const formatted = await formatVA(records);
   return formatted;
 };
