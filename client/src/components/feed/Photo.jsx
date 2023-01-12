@@ -68,7 +68,7 @@ function Photo(props) {
           width={width}
           height={height}
         >
-          <PhotoBack image={image} />
+          <PhotoBack image={image} width={width} height={height} />
         </CardBack>
       </ReactCardFlip>
 
