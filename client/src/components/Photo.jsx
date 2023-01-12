@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import styled from 'styled-components';
 import Yith from '@yith/yith';
 import ReactCardFlip from 'react-card-flip';
@@ -9,11 +9,6 @@ const ImageContainer = styled.div`
 `;
 
 const Card = styled.div`
-  /* position: absolute;
-  width: 100%;
-  height: 100%;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden; */
 `;
 
 const CardFront = styled(Card)`
@@ -26,33 +21,55 @@ const Image = styled.img`
 `;
 
 const CardBack = styled(Card)`
+  height: ${(props) => `${props.height}px`};
 `;
 
 function Photo(props) {
   const { image } = props;
   const [flipped, setFlipped] = useState(false);
   const [width, setWidth] = useState();
-  const [heigth, setHeight] = useState();
+  const [height, setHeight] = useState();
+
+  const imageRef = useRef();
+
+  const getImageSize = () => {
+    setWidth(imageRef.current.clientWidth);
+    setHeight(imageRef.current.clientHeight);
+  };
+
+  useEffect(() => {
+    window.addEventListener('resize', getImageSize);
+  }, []);
+
+  useEffect(() => {
+    getImageSize();
+  }, []);
 
   const handleClick = (evt) => {
     evt.preventDefault();
     setFlipped(!flipped);
   };
 
-  const img = new Image();
-  img.src = image.image;
-  img.onLoad = () => {
-    setWidth(img.width);
-    setHeight(img.height);
-  };
-
   return (
     <ImageContainer>
       <ReactCardFlip isFlipped={flipped} flipDirection="horizontal">
         <CardFront onClick={(evt) => handleClick(evt)}>
-          <Image src={image.image} loading="lazy" />
+          <Image
+            src={image.image}
+            loading="lazy"
+            // onLoad={(evt) => getImageSize()}
+            ref={imageRef}
+          />
         </CardFront>
-        <CardBack isFlipped={flipped} onClick={(evt) => handleClick(evt)}>{width}</CardBack>
+        <CardBack
+          isFlipped={flipped}
+          onClick={(evt) => handleClick(evt)}
+          width={width}
+          height={height}
+        >
+          info
+
+        </CardBack>
       </ReactCardFlip>
 
     </ImageContainer>
