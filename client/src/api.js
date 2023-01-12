@@ -30,7 +30,7 @@ const victoriaAlbertImages = async (decade, country) => {
 const formatVA = (records) => {
   const formatted = [];
   records.forEach((record) => {
-    const imageUrl = `${record._images._iiif_image_base_url}full/!700,400/0/default.jpg`;
+    const imageUrl = `${record._images._iiif_image_base_url}full/full/0/default.jpg`;
     const newRecord = {
       image: imageUrl,
       date: record._primaryDate,
