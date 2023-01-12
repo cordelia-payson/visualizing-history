@@ -30,12 +30,14 @@ const victoriaAlbertImages = async (decade, country) => {
 const formatVA = (records) => {
   const formatted = [];
   records.forEach((record) => {
-    const imageUrl = `${record._images._iiif_image_base_url}full/full/0/default.jpg`;
     const newRecord = {
-      image: imageUrl,
+      image: `${record._images._iiif_image_base_url}full/full/0/default.jpg`,
       date: record._primaryDate,
       artist: record._primaryMaker.name,
       title: record._primaryTitle,
+      objectType: record.objectType,
+      onDisplay: record._currentLocation.onDisplay,
+      museumPage: `https://collections.vam.ac.uk/item/${record.systemNumber}`,
     };
     formatted.push(newRecord);
   });

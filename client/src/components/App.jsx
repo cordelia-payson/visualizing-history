@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import Search from './Search.jsx';
-import PhotoFeed from './PhotoFeed.jsx';
+import Search from './search/Search.jsx';
+import PhotoFeed from './feed/PhotoFeed.jsx';
 import { getImages } from '../api.js';
 
 const Container = styled.div`
