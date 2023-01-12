@@ -21,6 +21,7 @@ function App() {
   const [images, setImages] = useState();
   const [searchDecade, setSearchDecade] = useState('');
   const [searchCountry, setSearchCountry] = useState('');
+  const [sortOption, setSortOption] = useState();
 
   useEffect(() => {
     if (searchDecade !== '' && searchCountry !== '') {

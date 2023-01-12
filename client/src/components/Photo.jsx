@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import Yith from '@yith/yith';
 
@@ -19,12 +19,23 @@ const ImageBack = styled.div``;
 
 function Photo(props) {
   const { image } = props;
+  const [front, setFront] = useState(true);
+  const [back, setBack] = useState(false);
+
+  const handleClick = () => (front
+    ? setFront(false) && setBack(true)
+    : setFront(true) && setBack(false));
+
+  useEffect(() => {
+
+  }, [side]);
 
   return (
     <ImageContainer>
-      <ImageFront>
-        <Image src={image.image} />
+      <ImageFront onClick={(evt) => handleClick()}>
+        <Image src={image.image} loading="lazy" />
       </ImageFront>
+      <ImageBack onClick={(evt) => handleClick()}>info</ImageBack>
     </ImageContainer>
   );
 }

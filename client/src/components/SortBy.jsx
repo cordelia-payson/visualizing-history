@@ -15,27 +15,27 @@ const Selected = styled(Select)``;
 
 const Item = styled(MenuItem)``;
 
-const countries = ['Britain', 'Canada', 'France', 'Italy', 'United States'];
+const options = ['Relevant', 'Artist', 'Place', 'Date'];
 
-function PlaceMenu(props) {
-  const { place, setPlace } = props;
+function SortBy(props) {
+  const { sort, setSort } = props;
   const handleChange = (event) => {
-    setPlace(event.target.value);
+    setSort(event.target.value);
   };
 
   return (
     <div>
       <Form variant="standard">
-        <Label>Country</Label>
+        <Label>Sort By (default sorted by relevancy)</Label>
         <Selected
-          value={place}
+          value={sort}
           onChange={handleChange}
         >
-          {countries.map((country) => <Item value={country} key={country}>{country}</Item>)}
+          {options.map((option) => <Item value={option} key={option}>{option}</Item>)}
         </Selected>
       </Form>
     </div>
   );
 }
 
-export default PlaceMenu;
+export default SortBy;
