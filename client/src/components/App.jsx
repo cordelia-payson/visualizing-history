@@ -22,16 +22,23 @@ function App() {
   const [searchDecade, setSearchDecade] = useState('');
   const [searchCountry, setSearchCountry] = useState('');
   const [sortOption, setSortOption] = useState();
+  const [pageNumber, setPageNumber] = useState(1);
+  const [hasMore, setHasMore] = useState(false);
+  const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    if (searchDecade !== '' && searchCountry !== '') {
-      getImages(searchDecade, searchCountry)
+  useEffect(
+    () => {
+      setLoading(true);
+      getImages(searchDecade, searchCountry, pageNumber)
         .then((res) => {
-          setImages(res);
+          setImages((images) => [...images, ...res]);
+          setHasMore(res.length > 0);
+          setLoading(false);
         })
         .catch((err) => err);
-    }
-  }, [searchDecade, searchCountry]);
+    },
+    [searchDecade, searchCountry],
+  );
 
   return (
     <Container>
@@ -46,10 +53,21 @@ function App() {
           setSearchDecade={setSearchDecade}
           searchCountry={searchCountry}
           setSearchCountry={setSearchCountry}
+          setPageNumber={setPageNumber}
+          setImages={setImages}
         />
       </TopBar>
 
-      {images ? <PhotoFeed images={images} /> : 'Pick a location and time period to see pictures!'}
+      {images
+        ? (
+          <PhotoFeed
+            images={images}
+            loading={loading}
+            setPageNumber={setPageNumber}
+            hasMore={hasMore}
+          />
+        )
+        : 'Pick a location and time period to see pictures!'}
 
     </Container>
   );

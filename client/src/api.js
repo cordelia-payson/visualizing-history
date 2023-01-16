@@ -3,7 +3,7 @@
 import axios from 'axios';
 import queryString from 'query-string';
 
-const victoriaAlbertImages = async (decade, country) => {
+const victoriaAlbertImages = async (decade, country, page) => {
   let resultsNum;
   const startYear = Number(decade);
   const endYear = Number(decade) + 9;
@@ -16,14 +16,14 @@ const victoriaAlbertImages = async (decade, country) => {
       page_size: 100,
       order_by: 'fields_populated',
       kw_object_type: '-Drawing',
+      page,
     },
   })
-    .then((res) => {
+    .then((res) =>
       // if (res.data.records.info.record_count > 100) {
       //   resultsNum = res.data.records.info.record_count;
       // }
-      return res.data.records;
-    })
+      res.data.records)
     .catch((err) => err);
 };
 
@@ -48,5 +48,6 @@ const formatVA = (records) => {
 export const getImages = async (decade, country) => {
   const records = await victoriaAlbertImages(decade, country);
   const formatted = await formatVA(records);
+  console.log(formatted);
   return formatted;
 };

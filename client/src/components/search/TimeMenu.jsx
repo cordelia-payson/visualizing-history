@@ -30,6 +30,7 @@ function TimeMenu(props) {
         <Selected
           value={time}
           onChange={handleChange}
+          required
         >
           {decades.map((decade) => <Item value={decade} key={decade}>{decade}</Item>)}
         </Selected>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef, useCallback } from 'react';
 import styled from 'styled-components';
 import Masonry from '@mui/lab/Masonry';
 import Yith from '@yith/yith';
@@ -16,15 +16,35 @@ const FeedContainer = styled.div`
 // `;
 
 function PhotoFeed(props) {
-  const { images } = props;
+  const { images, loading, setPageNumber, hasMore } = props;
+
+  const observer = useRef();
+
+  const lastImageElementRef = useCallback((node) => {
+    if (loading) return;
+    if (observer.current) observer.current.disconnect();
+    observer.current = new IntersectionObserver((entries) => {
+      if (entries[0].isIntersecting && hasMore) {
+        setPageNumber((prevPageNumber) => prevPageNumber + 1);
+        console.log('visible')
+      }
+    });
+    if (node) observer.current.observe(node);
+  }, [loading, hasMore]);
 
   return (
     <FeedContainer>
+
       <Masonry columns={4} spacing={2}>
-        {images.map((image, index) => (
-          <Photo image={image} key={index} />
-        ))}
+        {images.map((image, index) => {
+          if (images.length === index + 1) {
+            return <Photo image={image} key={index} ref={lastImageElementRef} />;
+          }
+          return <Photo image={image} key={index} />;
+        })}
       </Masonry>
+
+      {loading && 'Loading...'}
     </FeedContainer>
   );
 

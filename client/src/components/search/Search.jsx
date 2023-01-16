@@ -20,13 +20,16 @@ function Search(props) {
   const { searchDecade, setSearchDecade } = props;
   const { searchCountry, setSearchCountry } = props;
   const { sortOption, setSortOption } = props;
+  const { setPageNumber, setImages } = props;
   const [time, setTime] = useState('');
   const [place, setPlace] = useState('');
   const [sort, setSort] = useState('');
 
   const handleSearch = () => {
+    setImages();
     setSearchCountry(place);
     setSearchDecade(time);
+    setPageNumber(1);
     // setSortOption(sort);
   };
 
