@@ -1,33 +1,36 @@
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, {
+  useState, useEffect, useRef, useCallback,
+} from 'react';
 import styled from 'styled-components';
-import Yith from '@yith/yith';
 import ReactCardFlip from 'react-card-flip';
 import PhotoBack from './PhotoBack.jsx';
 import PhotoFront from './PhotoFront.jsx';
 
 const ImageContainer = styled.div`
   /* max-width: 25%; */
-  height: auto;
+  /* height: auto; */
 `;
 
 const Card = styled.div`
+  /* height: ${(props) => `${props.height}px`};
+  width: ${(props) => `${props.height}px`}; */
+  margin: 30px;
 `;
 
 const CardFront = styled(Card)`
  `;
 
 const Image = styled.img`
-  margin: 30px;
-  /* max-width: 25%; */
+  /* margin: 30px; */
   height: auto;
-  display: block;
+  display: inline-block;
   width: 100%;
-  height: auto;
 `;
 
 const CardBack = styled(Card)`
   height: ${(props) => `${props.height}px`};
   width: ${(props) => `${props.height}px`};
+  display: inline-block;
 `;
 
 const Photo = React.forwardRef((props, ref) => {
@@ -68,11 +71,16 @@ const Photo = React.forwardRef((props, ref) => {
         </CardFront>
         <CardBack
           isFlipped={flipped}
-          onClick={(evt) => handleClick(evt)}
           width={width}
           height={height}
         >
-          <PhotoBack image={image} width={width} height={height} />
+          <PhotoBack
+            image={image}
+            width={width}
+            height={height}
+            handleClick={handleClick}
+            flipped={flipped}
+          />
         </CardBack>
       </ReactCardFlip>
 

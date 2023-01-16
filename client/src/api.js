@@ -39,6 +39,7 @@ const formatVA = (records) => {
       onDisplay: record._currentLocation.onDisplay,
       museumPage: `https://collections.vam.ac.uk/item/${record.systemNumber}`,
       museum: 'Victoria and Albert Museum',
+      manifest: `https://iiif.vam.ac.uk/viewers/uv/3/uv.html#?manifest=${record._images._iiif_presentation_url}`,
     };
     formatted.push(newRecord);
   });
