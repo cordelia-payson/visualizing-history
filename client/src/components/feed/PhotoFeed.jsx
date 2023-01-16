@@ -1,22 +1,16 @@
 import React, { useRef, useCallback } from 'react';
 import styled from 'styled-components';
-import Masonry from '@mui/lab/Masonry';
-import Yith from '@yith/yith';
-import StackGrid from 'react-stack-grid';
-// import Masonry from 'react-masonry-css';
+// import Masonry from '@mui/lab/Masonry';
+import Masonry from 'react-masonry-css';
 import Photo from './Photo.jsx';
+import '../../app.css';
 
 const FeedContainer = styled.div`
 `;
 
-// const MasonryGrid = styled(Masonry)`
-//   display: flex;
-//   margin-left: -30px;
-//   width: auto;
-// `;
-
 function PhotoFeed(props) {
-  const { images, loading, setPageNumber, hasMore } = props;
+  const { images, loading, hasMore } = props;
+  const { pageNumber, setPageNumber } = props;
 
   const observer = useRef();
 
@@ -26,26 +20,35 @@ function PhotoFeed(props) {
     observer.current = new IntersectionObserver((entries) => {
       if (entries[0].isIntersecting && hasMore) {
         setPageNumber((prevPageNumber) => prevPageNumber + 1);
-        console.log('visible')
+        console.log('visible');
       }
     });
     if (node) observer.current.observe(node);
   }, [loading, hasMore]);
 
+  const breakpointColumnsObject = {
+    default: 4,
+  };
+
   return (
     <FeedContainer>
 
-      <Masonry columns={4} spacing={2}>
+      <Masonry
+        breakpointCols={4}
+        className="my-masonry-grid"
+        columnClassName="my-masonry-grid_column"
+      >
         {images.map((image, index) => {
           if (images.length === index + 1) {
-            return <Photo image={image} key={index} ref={lastImageElementRef} />;
+            return <Photo image={image} key={index} ref={lastImageElementRef} className="my-masonry-grid_column_div" />;
           }
-          return <Photo image={image} key={index} />;
+          return <Photo image={image} key={index} className="my-masonry-grid_column_div" />;
         })}
       </Masonry>
 
-      {loading && 'Loading...'}
+      {loading && images && 'Loading...'}
     </FeedContainer>
+
   );
 
   // return (

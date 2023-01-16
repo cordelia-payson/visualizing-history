@@ -26,7 +26,7 @@ function Search(props) {
   const [sort, setSort] = useState('');
 
   const handleSearch = () => {
-    setImages();
+    setImages([]);
     setSearchCountry(place);
     setSearchDecade(time);
     setPageNumber(1);

@@ -18,12 +18,12 @@ const TopBar = styled.div`
 const Title = styled.div``;
 
 function App() {
-  const [images, setImages] = useState();
+  const [images, setImages] = useState([]);
   const [searchDecade, setSearchDecade] = useState('');
   const [searchCountry, setSearchCountry] = useState('');
   const [sortOption, setSortOption] = useState();
   const [pageNumber, setPageNumber] = useState(1);
-  const [hasMore, setHasMore] = useState(false);
+  const [hasMore, setHasMore] = useState(true);
   const [loading, setLoading] = useState(false);
 
   useEffect(
@@ -31,13 +31,14 @@ function App() {
       setLoading(true);
       getImages(searchDecade, searchCountry, pageNumber)
         .then((res) => {
-          setImages((images) => [...images, ...res]);
+          setImages([...images, ...res]);
           setHasMore(res.length > 0);
           setLoading(false);
         })
         .catch((err) => err);
     },
-    [searchDecade, searchCountry],
+
+    [searchDecade, searchCountry, pageNumber],
   );
 
   return (
@@ -58,11 +59,12 @@ function App() {
         />
       </TopBar>
 
-      {images
+      {images.length > 0
         ? (
           <PhotoFeed
             images={images}
             loading={loading}
+            pageNumber={pageNumber}
             setPageNumber={setPageNumber}
             hasMore={hasMore}
           />

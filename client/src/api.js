@@ -45,9 +45,8 @@ const formatVA = (records) => {
   return formatted;
 };
 
-export const getImages = async (decade, country) => {
-  const records = await victoriaAlbertImages(decade, country);
+export const getImages = async (decade, country, page) => {
+  const records = await victoriaAlbertImages(decade, country, page);
   const formatted = await formatVA(records);
-  console.log(formatted);
   return formatted;
 };
