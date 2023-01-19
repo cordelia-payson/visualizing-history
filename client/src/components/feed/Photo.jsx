@@ -2,9 +2,25 @@ import React, {
   useState, useEffect, useRef, useCallback,
 } from 'react';
 import styled from 'styled-components';
+import Modal from '@mui/material/Modal';
+import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
 import ReactCardFlip from 'react-card-flip';
 import PhotoBack from './PhotoBack.jsx';
 import PhotoFront from './PhotoFront.jsx';
+
+const style = {
+  position: 'absolute',
+  top: '50%',
+  left: '50%',
+  transform: 'translate(-50%, -50%)',
+  width: 400,
+  bgcolor: 'background.paper',
+  border: '2px solid #000',
+  boxShadow: 24,
+  p: 4,
+};
 
 const ImageContainer = styled.div`
   /* max-width: 25%; */
@@ -18,6 +34,7 @@ const Card = styled.div`
 `;
 
 const CardFront = styled(Card)`
+  margin: none;
  `;
 
 const Image = styled.img`
@@ -39,6 +56,10 @@ const Photo = React.forwardRef((props, ref) => {
   const [width, setWidth] = useState();
   const [height, setHeight] = useState();
 
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => setOpen(true);
+  const handleClose = () => setOpen(false);
+
   const imageRef = useRef();
 
   const getImageSize = () => {
@@ -58,34 +79,59 @@ const Photo = React.forwardRef((props, ref) => {
     evt.preventDefault();
     setFlipped(!flipped);
   };
-
   return (
     <ImageContainer ref={ref}>
-      <ReactCardFlip isFlipped={flipped} flipDirection="horizontal">
-        <CardFront onClick={(evt) => handleClick(evt)}>
-          <Image
-            src={image.image}
-            loading="lazy"
-            ref={imageRef}
-          />
-        </CardFront>
-        <CardBack
-          isFlipped={flipped}
-          width={width}
-          height={height}
-        >
-          <PhotoBack
-            image={image}
-            width={width}
-            height={height}
-            handleClick={handleClick}
-            flipped={flipped}
-          />
-        </CardBack>
-      </ReactCardFlip>
+
+      <CardFront onClick={(evt) => handleOpen()}>
+        <Image
+          src={image.image}
+          loading="lazy"
+          ref={imageRef}
+        />
+      </CardFront>
+
+      <Modal
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="modal-modal-title"
+        aria-describedby="modal-modal-description"
+      >
+        <Box sx={style}>
+          <PhotoBack image={image} />
+        </Box>
+      </Modal>
 
     </ImageContainer>
   );
+
+  // return (
+  //   <ImageContainer ref={ref}>
+  //     <ReactCardFlip isFlipped={flipped} flipDirection="horizontal">
+  //       {/* <CardFront onClick={(evt) => handleClick(evt)}> */}
+  //       <CardFront onClick={(evt) => handleOpen()}>
+  //         <Image
+  //           src={image.image}
+  //           loading="lazy"
+  //           ref={imageRef}
+  //         />
+  //       </CardFront>
+  //       <CardBack
+  //         isFlipped={flipped}
+  //         width={width}
+  //         height={height}
+  //       >
+  //         <PhotoBack
+  //           image={image}
+  //           width={width}
+  //           height={height}
+  //           handleClick={handleClick}
+  //           flipped={flipped}
+  //         />
+  //       </CardBack>
+  //     </ReactCardFlip>
+
+  //   </ImageContainer>
+  // );
 });
 
 export default Photo;

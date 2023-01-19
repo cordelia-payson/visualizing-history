@@ -5,12 +5,16 @@ import { TbArrowBack } from 'react-icons/tb';
 const Container = styled.div`
   /* display: flex;
   flex-direction: column; */
-  height: ${(props) => `${props.height}px`};
-  width: ${(props) => `${props.height}px`};
-  position: relative;
+  /* height: ${(props) => `${props.height}px`};
+  width: ${(props) => `${props.height}px`}; */
+  /* position: relative; */
   /* margin: 30px; */
   text-align: justify;
   position: relative;
+  /* border: 1px black solid; */
+  /* padding: 5px; */
+  margin: none;
+  /* border-radius: 15px; */
 `;
 
 const Title = styled.div``;
@@ -55,19 +59,15 @@ function PhotoBack(props) {
         {' '}
         {image.museum}
       </Museum> */}
-      <Link href={image.manifest} target="_blank">Take a closer look with Universal Viewer</Link>
+      <Link href={image.manifest} target="_blank">Universal Viewer</Link>
       <br />
-      <Link href={image.museumPage} target="_blank">
-        Image courtesey of the
-        {' '}
-        {image.museum}
-      </Link>
-      <Flip
+      <Link href={image.museumPage} target="_blank">{image.museum}</Link>
+      {/* <Flip
         onClick={(evt) => handleClick(evt)}
         isFlipped={flipped}
       >
         <TbArrowBack size={40} />
-      </Flip>
+      </Flip> */}
 
     </Container>
   );

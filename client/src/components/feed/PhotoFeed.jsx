@@ -6,6 +6,7 @@ import Photo from './Photo.jsx';
 import '../../app.css';
 
 const FeedContainer = styled.div`
+  margin: auto;
 `;
 
 function PhotoFeed(props) {

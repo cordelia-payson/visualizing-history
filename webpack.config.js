@@ -42,7 +42,7 @@ module.exports = {
     port: 3000,
   },
   resolve: {
-    extensions: ['.ts', '.js'],
+    extensions: ['.ts', '.js', '.json'],
     alias: {
       '@mui/styled-engine': '@mui/styled-engine-sc',
       react: path.resolve('./node_modules/react'),

@@ -5,8 +5,13 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 
+const SortContainer = styled.div`
+  margin: 20px;
+`;
 const Form = styled(FormControl)`
   width: 150px;
+  font-family: 'Jost' !important;
+  margin: 20px;
 `;
 
 const Label = styled(InputLabel)``;
@@ -24,7 +29,7 @@ function SortBy(props) {
   };
 
   return (
-    <div>
+    <SortContainer>
       <Form variant="standard">
         <Label>Sort By (default sorted by relevancy)</Label>
         <Selected
@@ -34,7 +39,7 @@ function SortBy(props) {
           {options.map((option) => <Item value={option} key={option}>{option}</Item>)}
         </Selected>
       </Form>
-    </div>
+    </SortContainer>
   );
 }
 

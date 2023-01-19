@@ -7,6 +7,7 @@ import SortBy from './SortBy.jsx';
 const Container = styled.div`
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 `;
 
 const Time = styled.div``;

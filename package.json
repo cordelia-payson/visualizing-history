@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "description": "My webpack project",
   "main": "index.js",
+  "browser": {
+    "fs": false
+  },
   "scripts": {
     "start": "webpack --mode development --watch",
     "build": "webpack --mode=production --node-env=production",
@@ -32,6 +35,7 @@
     "webpack-dev-server": "^4.11.1"
   },
   "dependencies": {
+    "@archival-iiif/presentation-builder": "^1.5.2",
     "@blueprintjs/core": "^4.14.1",
     "@mui/lab": "^5.0.0-alpha.115",
     "@mui/material": "^5.11.4",
@@ -39,9 +43,7 @@
     "@yith/yith": "^1.1.1",
     "axios": "^1.2.2",
     "body-parser": "^1.20.1",
-    "edit-json-file": "^1.7.0",
     "express": "^4.18.2",
-    "fs": "^0.0.1-security",
     "node-polyfill-webpack-plugin": "^2.0.1",
     "nodemon": "^2.0.20",
     "normalize-url": "^8.0.0",
