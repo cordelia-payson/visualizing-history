@@ -64,18 +64,18 @@ const Photo = React.forwardRef((props, ref) => {
 
   const imageRef = useRef();
 
-  const getImageSize = () => {
-    setWidth(imageRef.current.clientWidth);
-    setHeight(imageRef.current.clientHeight);
-  };
+  // const getImageSize = () => {
+  //   setWidth(imageRef.current.clientWidth);
+  //   setHeight(imageRef.current.clientHeight);
+  // };
 
-  useEffect(() => {
-    window.addEventListener('resize', getImageSize);
-  }, []);
+  // useEffect(() => {
+  //   window.addEventListener('resize', getImageSize);
+  // }, []);
 
-  useEffect(() => {
-    getImageSize();
-  }, []);
+  // useEffect(() => {
+  //   getImageSize();
+  // }, []);
 
   const handleClick = (evt) => {
     evt.preventDefault();

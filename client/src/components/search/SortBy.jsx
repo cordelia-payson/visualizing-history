@@ -6,12 +6,10 @@ import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 
 const SortContainer = styled.div`
-  margin: 20px;
 `;
 const Form = styled(FormControl)`
   width: 150px;
   font-family: 'Jost' !important;
-  margin: 20px;
 `;
 
 const Label = styled(InputLabel)``;
@@ -20,7 +18,7 @@ const Selected = styled(Select)``;
 
 const Item = styled(MenuItem)``;
 
-const options = ['Relevant', 'Artist', 'Place', 'Date'];
+const options = ['Relevant', 'Artist', 'Fields Populated'];
 
 function SortBy(props) {
   const { sort, setSort } = props;
@@ -31,7 +29,7 @@ function SortBy(props) {
   return (
     <SortContainer>
       <Form variant="standard">
-        <Label>Sort By (default sorted by relevancy)</Label>
+        <Label>Sort By</Label>
         <Selected
           value={sort}
           onChange={handleChange}

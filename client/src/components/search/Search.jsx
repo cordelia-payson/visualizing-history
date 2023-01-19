@@ -39,7 +39,7 @@ function Search(props) {
 
       <PlaceMenu place={place} setPlace={setPlace} />
       <TimeMenu time={time} setTime={setTime} />
-      {/* <SortBy sort={sort} setSort={setSort} /> */}
+      <SortBy sort={sort} setSort={setSort} />
 
       <SearchButton onClick={() => handleSearch()}>Search</SearchButton>
     </Container>

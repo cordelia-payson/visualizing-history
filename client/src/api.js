@@ -1,3 +1,4 @@
+/* eslint-disable no-nested-ternary */
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable import/prefer-default-export */
 import axios from 'axios';
@@ -5,6 +6,10 @@ import queryString from 'query-string';
 
 const victoriaAlbertImages = async (decade, country, page, sort) => {
   // if (sort === 'Relevant') sort = 'fields_populated';
+  const order = sort === 'Artist' ? 'artist'
+    : sort === 'Relevant' ? null
+      : sort === 'Fields Populated' ? 'fields_populated'
+        : null;
   const startYear = Number(decade);
   const endYear = Number(decade) + 9;
   return axios.get('https://api.vam.ac.uk/v2/objects/search', {
@@ -14,7 +19,7 @@ const victoriaAlbertImages = async (decade, country, page, sort) => {
       year_made_to: endYear,
       images_exist: 1,
       page_size: 100,
-      order_by: 'fields_populated',
+      order_by: order,
       kw_object_type: '-Drawing',
       page,
     },
@@ -43,7 +48,7 @@ const formatVA = (records) => {
 };
 
 export const getImages = async (decade, country, page, sort) => {
-  const records = await victoriaAlbertImages(decade, country, page);
+  const records = await victoriaAlbertImages(decade, country, page, sort);
   const formatted = await formatVA(records);
   return formatted;
 };

@@ -48,7 +48,7 @@ function App() {
         .catch((err) => err);
     },
 
-    [searchDecade, searchCountry, pageNumber],
+    [searchDecade, searchCountry, pageNumber, sortOption],
   );
 
   return (
