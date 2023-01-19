@@ -27,8 +27,13 @@ const SearchButton = styled.div`
   background: none;
 
   &:hover {
-    background: ;
+    background: #e0d6ff;
   }
+  &: active {
+    background: #ada2ff;
+  }
+
+  &:
 `;
 
 function Search(props) {

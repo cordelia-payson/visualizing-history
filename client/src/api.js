@@ -14,7 +14,7 @@ const victoriaAlbertImages = async (decade, country, page, sort) => {
       year_made_from: startYear,
       year_made_to: endYear,
       images_exist: 1,
-      page_size: 100,
+      page_size: 20,
       order_by: sort,
       kw_object_type: '-Drawing',
       page,
