@@ -46,19 +46,19 @@ function PhotoBack(props) {
       <Info>
         Artist:
         {' '}
-        {image.artist || 'Artist Unknown'}
+        {image.artist || 'Unknown'}
       </Info>
       <Info>
         Date:
         {' '}
-        {image.date || 'Date Unknown'}
+        {image.date || 'Unknown'}
       </Info>
-      {/* <Info>{image.objectType || 'Object Type Unknown'}</Info> */}
-      {/* <Museum>
-        Digital image courtesey of the
+      <Info>
+        Object Type:
         {' '}
-        {image.museum}
-      </Museum> */}
+        {image.objectType || 'Object Type Unknown'}
+      </Info>
+
       <Link href={image.manifest} target="_blank">Universal Viewer</Link>
       <br />
       <Link href={image.museumPage} target="_blank">{image.museum}</Link>

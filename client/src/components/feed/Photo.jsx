@@ -6,6 +6,8 @@ import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import Backdrop from '@mui/material/Backdrop';
+import Fade from '@mui/material/Fade';
 import ReactCardFlip from 'react-card-flip';
 import PhotoBack from './PhotoBack.jsx';
 import PhotoFront from './PhotoFront.jsx';
@@ -91,14 +93,22 @@ const Photo = React.forwardRef((props, ref) => {
       </CardFront>
 
       <Modal
+        aria-labelledby="transition-modal-title"
+        aria-describedby="transition-modal-description"
         open={open}
         onClose={handleClose}
-        aria-labelledby="modal-modal-title"
-        aria-describedby="modal-modal-description"
+        closeAfterTransition
+        BackdropComponent={Backdrop}
+        BackdropProps={{
+          timeout: 500,
+        }}
       >
-        <Box sx={style}>
-          <PhotoBack image={image} />
-        </Box>
+        <Fade in={open}>
+          <Box sx={style}>
+            <PhotoBack image={image} />
+          </Box>
+        </Fade>
+
       </Modal>
 
     </ImageContainer>

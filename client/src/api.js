@@ -3,8 +3,8 @@
 import axios from 'axios';
 import queryString from 'query-string';
 
-const victoriaAlbertImages = async (decade, country, page) => {
-  let resultsNum;
+const victoriaAlbertImages = async (decade, country, page, sort) => {
+  // if (sort === 'Relevant') sort = 'fields_populated';
   const startYear = Number(decade);
   const endYear = Number(decade) + 9;
   return axios.get('https://api.vam.ac.uk/v2/objects/search', {
@@ -42,7 +42,7 @@ const formatVA = (records) => {
   return formatted;
 };
 
-export const getImages = async (decade, country, page) => {
+export const getImages = async (decade, country, page, sort) => {
   const records = await victoriaAlbertImages(decade, country, page);
   const formatted = await formatVA(records);
   return formatted;

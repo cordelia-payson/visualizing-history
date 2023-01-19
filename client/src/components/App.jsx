@@ -39,7 +39,7 @@ function App() {
   useEffect(
     () => {
       setLoading(true);
-      getImages(searchDecade, searchCountry, pageNumber)
+      getImages(searchDecade, searchCountry, pageNumber, sortOption)
         .then((res) => {
           setImages([...images, ...res]);
           setHasMore(res.length > 0);
