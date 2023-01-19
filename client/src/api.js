@@ -5,11 +5,7 @@ import axios from 'axios';
 import queryString from 'query-string';
 
 const victoriaAlbertImages = async (decade, country, page, sort) => {
-  // if (sort === 'Relevant') sort = 'fields_populated';
-  const order = sort === 'Artist' ? 'artist'
-    : sort === 'Relevant' ? null
-      : sort === 'Fields Populated' ? 'fields_populated'
-        : null;
+  console.log(sort);
   const startYear = Number(decade);
   const endYear = Number(decade) + 9;
   return axios.get('https://api.vam.ac.uk/v2/objects/search', {
@@ -19,7 +15,7 @@ const victoriaAlbertImages = async (decade, country, page, sort) => {
       year_made_to: endYear,
       images_exist: 1,
       page_size: 100,
-      order_by: order,
+      order_by: sort,
       kw_object_type: '-Drawing',
       page,
     },

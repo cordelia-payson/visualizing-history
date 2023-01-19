@@ -6,7 +6,8 @@ import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 
 const Form = styled(FormControl)`
-  width: 100px;
+  width: 130px;
+  margin: 5px;
 `;
 
 const Label = styled(InputLabel)``;
@@ -26,7 +27,7 @@ function TimeMenu(props) {
   return (
     <div>
       <Form variant="standard">
-        <Label>Decade</Label>
+        <Label>Time Period</Label>
         <Selected
           value={time}
           onChange={handleChange}

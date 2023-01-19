@@ -57,7 +57,7 @@ function App() {
       <Container>
 
         <TopBar>
-          <Title>Time Period Photos</Title>
+          <Title>Visualizing History</Title>
 
           {/* liked photos */}
 
@@ -68,6 +68,8 @@ function App() {
             setSearchCountry={setSearchCountry}
             setPageNumber={setPageNumber}
             setImages={setImages}
+            sortOption={sortOption}
+            setSortOption={setSortOption}
           />
         </TopBar>
 
@@ -81,7 +83,7 @@ function App() {
               hasMore={hasMore}
             />
           )
-          : <Default>Pick a location and time period to see pictures!</Default>}
+          : <Default>Choose a location and time to get a glimpse of the past</Default>}
 
       </Container>
     </div>

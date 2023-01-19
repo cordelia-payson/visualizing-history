@@ -6,7 +6,8 @@ import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 
 const Form = styled(FormControl)`
-  width: 150px;
+  width: 100px;
+  margin: 5px;
 `;
 
 const Label = styled(InputLabel)``;
@@ -26,7 +27,7 @@ function PlaceMenu(props) {
   return (
     <div>
       <Form variant="standard">
-        <Label>Country</Label>
+        <Label>Location</Label>
         <Selected
           value={place}
           onChange={handleChange}
