@@ -16,7 +16,7 @@ const Selected = styled(Select)``;
 
 const Item = styled(MenuItem)``;
 
-const countries = ['Britain', 'Canada', 'France', 'Italy', 'United States'];
+const countries = ['Afghanistan', 'Brazil', 'Britain', 'Canada', 'France', 'Germany', 'Italy', 'Mexico', 'Russia', 'United States'];
 
 function PlaceMenu(props) {
   const { place, setPlace } = props;

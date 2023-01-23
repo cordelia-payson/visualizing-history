@@ -5,7 +5,6 @@ import axios from 'axios';
 import queryString from 'query-string';
 
 const victoriaAlbertImages = async (decade, country, page, sort) => {
-  console.log(sort);
   const startYear = Number(decade);
   const endYear = Number(decade) + 9;
   return axios.get('https://api.vam.ac.uk/v2/objects/search', {

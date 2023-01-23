@@ -25,8 +25,6 @@ const style = {
 };
 
 const ImageContainer = styled.div`
-  /* max-width: 25%; */
-  /* height: auto; */
 `;
 
 const Card = styled.div`
@@ -40,7 +38,6 @@ const CardFront = styled(Card)`
  `;
 
 const Image = styled.img`
-  /* margin: 30px; */
   height: auto;
   display: inline-block;
   width: 100%;
@@ -113,35 +110,36 @@ const Photo = React.forwardRef((props, ref) => {
 
     </ImageContainer>
   );
-
-  // return (
-  //   <ImageContainer ref={ref}>
-  //     <ReactCardFlip isFlipped={flipped} flipDirection="horizontal">
-  //       {/* <CardFront onClick={(evt) => handleClick(evt)}> */}
-  //       <CardFront onClick={(evt) => handleOpen()}>
-  //         <Image
-  //           src={image.image}
-  //           loading="lazy"
-  //           ref={imageRef}
-  //         />
-  //       </CardFront>
-  //       <CardBack
-  //         isFlipped={flipped}
-  //         width={width}
-  //         height={height}
-  //       >
-  //         <PhotoBack
-  //           image={image}
-  //           width={width}
-  //           height={height}
-  //           handleClick={handleClick}
-  //           flipped={flipped}
-  //         />
-  //       </CardBack>
-  //     </ReactCardFlip>
-
-  //   </ImageContainer>
-  // );
 });
 
 export default Photo;
+
+// code for card flip - leaving here in case I return to this design
+// return (
+//   <ImageContainer ref={ref}>
+//     <ReactCardFlip isFlipped={flipped} flipDirection="horizontal">
+//       {/* <CardFront onClick={(evt) => handleClick(evt)}> */}
+//       <CardFront onClick={(evt) => handleOpen()}>
+//         <Image
+//           src={image.image}
+//           loading="lazy"
+//           ref={imageRef}
+//         />
+//       </CardFront>
+//       <CardBack
+//         isFlipped={flipped}
+//         width={width}
+//         height={height}
+//       >
+//         <PhotoBack
+//           image={image}
+//           width={width}
+//           height={height}
+//           handleClick={handleClick}
+//           flipped={flipped}
+//         />
+//       </CardBack>
+//     </ReactCardFlip>
+
+//   </ImageContainer>
+// );

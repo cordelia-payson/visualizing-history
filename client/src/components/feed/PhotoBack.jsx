@@ -3,18 +3,9 @@ import styled from 'styled-components';
 import { TbArrowBack } from 'react-icons/tb';
 
 const Container = styled.div`
-  /* display: flex;
-  flex-direction: column; */
-  /* height: ${(props) => `${props.height}px`};
-  width: ${(props) => `${props.height}px`}; */
-  /* position: relative; */
-  /* margin: 30px; */
   text-align: justify;
   position: relative;
-  /* border: 1px black solid; */
-  /* padding: 5px; */
   margin: none;
-  /* border-radius: 15px; */
 `;
 
 const Title = styled.div``;
@@ -28,7 +19,6 @@ const Link = styled.a`
 `;
 
 const Flip = styled.div`
-  /* position: absolute; */
   bottom: 0;
   right: 0;
 `;

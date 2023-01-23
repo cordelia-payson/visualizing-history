@@ -32,8 +32,6 @@ const SearchButton = styled.div`
   &: active {
     background: #ada2ff;
   }
-
-  &:
 `;
 
 function Search(props) {
@@ -63,7 +61,6 @@ function Search(props) {
       <SearchButton onClick={() => handleSearch()}>
         <div>Search</div>
       </SearchButton>
-      {/* <Button variant="outlined" size="small" onClick={() => handleSearch()}>Search</Button> */}
     </Container>
   );
 }

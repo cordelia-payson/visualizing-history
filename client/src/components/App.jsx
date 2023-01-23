@@ -84,7 +84,6 @@ function App() {
             />
           )
           : <Default>Choose a location and time to get a glimpse of the past</Default>}
-
       </Container>
     </div>
   );
