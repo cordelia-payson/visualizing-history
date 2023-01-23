@@ -1,6 +1,5 @@
 import React, { useRef, useCallback } from 'react';
 import styled from 'styled-components';
-// import Masonry from '@mui/lab/Masonry';
 import Masonry from 'react-masonry-css';
 import Photo from './Photo.jsx';
 import '../../app.css';
@@ -21,7 +20,6 @@ function PhotoFeed(props) {
     observer.current = new IntersectionObserver((entries) => {
       if (entries[0].isIntersecting && hasMore) {
         setPageNumber((prevPageNumber) => prevPageNumber + 1);
-        console.log('visible');
       }
     });
     if (node) observer.current.observe(node);
