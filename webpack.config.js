@@ -1,5 +1,5 @@
 // Generated using webpack-cli https://github.com/webpack/webpack-cli
-
+const NodePolyfillPlugin = require('node-polyfill-webpack-plugin');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -25,6 +25,7 @@ module.exports = {
       },
     ],
   },
+  plugins: [new NodePolyfillPlugin()],
   // [devtool] this is an additional source map that
   // will let the browser know what files are running our code.
   // Helps with error tracing. Without it we will not know where our errors are coming from because
@@ -41,6 +42,10 @@ module.exports = {
     port: 3000,
   },
   resolve: {
-    extensions: ['.ts', '.js'],
+    extensions: ['.ts', '.js', '.json'],
+    alias: {
+      '@mui/styled-engine': '@mui/styled-engine-sc',
+      react: path.resolve('./node_modules/react'),
+    },
   },
 };

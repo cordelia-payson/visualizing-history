@@ -1,0 +1,9 @@
+.my-masonry-grid {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: auto;
+}
+.my-masonry-grid_column {
+  width: 25%;
+}
