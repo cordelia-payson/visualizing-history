@@ -3,6 +3,8 @@ import styled from 'styled-components';
 import SearchBar from '../search/SearchBar.jsx';
 import { getImages } from '../../api.js';
 import PhotoFeed from './PhotoFeed.jsx';
+import ScrollButton from '../shared/ScrollTopButton.jsx';
+import Title from '../shared/Title.jsx';
 
 const Container = styled.div`
   display: flex;
@@ -47,31 +49,36 @@ function Home() {
   );
 
   return (
-    <Container>
-      <SearchBar
-        searchDecade={searchDecade}
-        setSearchDecade={setSearchDecade}
-        searchCountry={searchCountry}
-        setSearchCountry={setSearchCountry}
-        setPageNumber={setPageNumber}
-        setImages={setImages}
-        sortOption={sortOption}
-        setSortOption={setSortOption}
-      />
+    <div>
+      <Title />
+      <Container>
+        <SearchBar
+          searchDecade={searchDecade}
+          setSearchDecade={setSearchDecade}
+          searchCountry={searchCountry}
+          setSearchCountry={setSearchCountry}
+          setPageNumber={setPageNumber}
+          setImages={setImages}
+          sortOption={sortOption}
+          setSortOption={setSortOption}
+        />
 
-      {images.length > 0
-        ? (
-          <PhotoFeed
-            images={images}
-            loading={loading}
-            pageNumber={pageNumber}
-            setPageNumber={setPageNumber}
-            hasMore={hasMore}
-          />
-        )
-        : <Default>Choose a location and time to get a glimpse of the past</Default>}
+        {images.length > 0
+          ? (
+            <PhotoFeed
+              images={images}
+              loading={loading}
+              pageNumber={pageNumber}
+              setPageNumber={setPageNumber}
+              hasMore={hasMore}
+            />
+          )
+          : <Default>Choose a location and time to get a glimpse of the past</Default>}
 
-    </Container>
+        <ScrollButton />
+      </Container>
+    </div>
+
   );
 }
 
