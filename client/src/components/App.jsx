@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 import SearchBar from './search/SearchBar.jsx';
-import PhotoFeed from './feed/PhotoFeed.jsx';
+import PhotoFeed from './home/PhotoFeed.jsx';
 import { getImages } from '../api.js';
 import GlobalStyle from '../GlobalStyle.jsx';
 import ScrollButton from './ScrollTopButton.jsx';
+import Home from './home/Home.jsx';
 
 const Container = styled.div`
   display: flex;
@@ -21,7 +22,7 @@ const TopBar = styled.div`
 const Title = styled.div`
   font-size: 2.5em;
   text-align: center;
-  margin: 20px;
+  margin-top: 20px;
 `;
 
 const Default = styled.div`
@@ -29,29 +30,6 @@ const Default = styled.div`
 `;
 
 function App() {
-  const [images, setImages] = useState([]);
-  const [searchDecade, setSearchDecade] = useState('');
-  const [searchCountry, setSearchCountry] = useState('');
-  const [sortOption, setSortOption] = useState();
-  const [pageNumber, setPageNumber] = useState(1);
-  const [hasMore, setHasMore] = useState(true);
-  const [loading, setLoading] = useState(false);
-
-  useEffect(
-    () => {
-      setLoading(true);
-      getImages(searchDecade, searchCountry, pageNumber, sortOption)
-        .then((res) => {
-          setImages([...images, ...res]);
-          setHasMore(res.length > 0);
-          setLoading(false);
-        })
-        .catch((err) => err);
-    },
-
-    [searchDecade, searchCountry, pageNumber, sortOption],
-  );
-
   return (
     <div>
       <GlobalStyle />
@@ -59,33 +37,9 @@ function App() {
 
         <TopBar>
           <Title>Visualizing History</Title>
-
-          {/* liked photos */}
-
-          <SearchBar
-            searchDecade={searchDecade}
-            setSearchDecade={setSearchDecade}
-            searchCountry={searchCountry}
-            setSearchCountry={setSearchCountry}
-            setPageNumber={setPageNumber}
-            setImages={setImages}
-            sortOption={sortOption}
-            setSortOption={setSortOption}
-          />
         </TopBar>
 
-        {images.length > 0
-          ? (
-            <PhotoFeed
-              images={images}
-              loading={loading}
-              pageNumber={pageNumber}
-              setPageNumber={setPageNumber}
-              hasMore={hasMore}
-            />
-          )
-          : <Default>Choose a location and time to get a glimpse of the past</Default>}
-
+        <Home />
         <ScrollButton />
       </Container>
     </div>

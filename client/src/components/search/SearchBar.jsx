@@ -11,30 +11,38 @@ const Container = styled.div`
   justify-content: space-between;
 `;
 
-const Time = styled.div``;
-
 const SearchButton = styled.div`
   display: flex;
-  width: auto;
+  height: auto;
   text-align: center;
   vertical-align: middle;
   justify-content: center;
   align-items: center;
   margin: 5px;
-  border: 1px black solid;
-  border-radius: 5px;
-  padding: 4px;
+  border: grey solid 1px;
+  border-radius: 10px;
+  padding: 6px 10px;
+  align-self: center;
+  font-size: 25px;
+  /* box-shadow: rgba(0, 0, 0, 0.35) 0px 2px 10px; */
+  /* background: #ada2ff; */
   background: none;
 
   &:hover {
-    background: #e0d6ff;
+    /* transform: scale(1.1); */
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 2px 10px;
+    background: #ada2ff;
   }
   &: active {
-    background: #ada2ff;
+    background: #e0d6ff;
   }
 `;
 
-function Search(props) {
+const ButtonText = styled.div`
+  color: black;
+`;
+
+function SearchBar(props) {
   const { searchDecade, setSearchDecade } = props;
   const { searchCountry, setSearchCountry } = props;
   const { sortOption, setSortOption } = props;
@@ -59,10 +67,10 @@ function Search(props) {
       <SortBy sort={sort} setSort={setSort} />
 
       <SearchButton onClick={() => handleSearch()}>
-        <div>Search</div>
+        <ButtonText>Search</ButtonText>
       </SearchButton>
     </Container>
   );
 }
 
-export default Search;
+export default SearchBar;
