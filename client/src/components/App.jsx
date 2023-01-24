@@ -4,6 +4,7 @@ import Search from './search/Search.jsx';
 import PhotoFeed from './feed/PhotoFeed.jsx';
 import { getImages } from '../api.js';
 import GlobalStyle from '../GlobalStyle.jsx';
+import ScrollButton from './ScrollTopButton.jsx';
 
 const Container = styled.div`
   display: flex;
@@ -84,6 +85,8 @@ function App() {
             />
           )
           : <Default>Choose a location and time to get a glimpse of the past</Default>}
+
+        <ScrollButton />
       </Container>
     </div>
   );
