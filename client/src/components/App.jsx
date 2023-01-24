@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
-import Search from './search/Search.jsx';
+import SearchBar from './search/SearchBar.jsx';
 import PhotoFeed from './feed/PhotoFeed.jsx';
 import { getImages } from '../api.js';
 import GlobalStyle from '../GlobalStyle.jsx';
@@ -62,7 +62,7 @@ function App() {
 
           {/* liked photos */}
 
-          <Search
+          <SearchBar
             searchDecade={searchDecade}
             setSearchDecade={setSearchDecade}
             searchCountry={searchCountry}
