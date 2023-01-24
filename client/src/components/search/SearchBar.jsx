@@ -20,10 +20,10 @@ const SearchButton = styled.div`
   align-items: center;
   margin: 5px;
   border: grey solid 1px;
-  border-radius: 10px;
+  /* border-radius: 10px; */
   padding: 6px 10px;
   align-self: center;
-  font-size: 25px;
+  font-size: 20px;
   /* box-shadow: rgba(0, 0, 0, 0.35) 0px 2px 10px; */
   /* background: #ada2ff; */
   background: none;
