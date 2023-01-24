@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { IoArrowUp } from 'react-icons/io';
+import { HiArrowUp } from 'react-icons/hi';
 import styled from 'styled-components';
 
 const Button = styled.div`
@@ -10,8 +10,8 @@ const Button = styled.div`
    font-size: 3rem;
    z-index: 1;
    cursor: pointer;
-   margin: 40px;
-   color: #303030;
+   margin: 50px;
+   color: #AF69EE;
 `;
 
 function ScrollButton() {
@@ -19,9 +19,9 @@ function ScrollButton() {
 
   const toggleVisible = () => {
     const scrolled = document.documentElement.scrollTop;
-    if (scrolled > 0) {
+    if (scrolled > 500) {
       setVisible(true);
-    } else if (scrolled <= 300) {
+    } else if (scrolled <= 500) {
       setVisible(false);
     }
   };
@@ -36,7 +36,7 @@ function ScrollButton() {
   window.addEventListener('scroll', toggleVisible);
   return (
     <Button>
-      <FaArrowCircleUp
+      <HiArrowUp
         onClick={scrollToTop}
         style={{ display: visible ? 'inline' : 'none' }}
       />
