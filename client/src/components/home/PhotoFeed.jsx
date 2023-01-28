@@ -1,7 +1,6 @@
 import React, { useRef, useCallback } from 'react';
 import styled from 'styled-components';
 import Masonry from 'react-masonry-css';
-import Yith from '@yith/yith';
 import Photo from './Photo.jsx';
 import '../../app.css';
 
@@ -52,11 +51,11 @@ function PhotoFeed(props) {
   );
 
   // return (
-  //   <div>
-  //     <Yith type="projection">
-  //       <Yith.Manifest id="https://raw.githubusercontent.com/mathewjordan/iiif/main/manifest/cordelia/O9138.json" />
-  //     </Yith>
-  //   </div>
+    // <div>
+    //   <Yith type="projection">
+    //     <Yith.Manifest id="https://raw.githubusercontent.com/mathewjordan/iiif/main/manifest/cordelia/O9138.json" />
+    //   </Yith>
+    // </div>
 
   // );
 }

@@ -1,25 +1,22 @@
 import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
+import Yith from '@yith/yith';
 import SearchBar from '../search/SearchBar.jsx';
 import { getImages } from '../../api.js';
 import PhotoFeed from './PhotoFeed.jsx';
 import ScrollButton from '../shared/ScrollTopButton.jsx';
 import Title from '../shared/Title.jsx';
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  display: flex;
-  flex-direction: column;
-  margin: 15px;
-  align-items: center;
-`;
 const TopBar = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  display: flex;
   margin: 15px;
-  align-items: center;
+  justify-content: center;
 `;
+
+const Middle = styled.div``;
+
 const Default = styled.div`
   text-align: center;
 `;
@@ -50,33 +47,38 @@ function Home() {
 
   return (
     <div>
-      <Title />
-      <Container>
-        <SearchBar
-          searchDecade={searchDecade}
-          setSearchDecade={setSearchDecade}
-          searchCountry={searchCountry}
-          setSearchCountry={setSearchCountry}
-          setPageNumber={setPageNumber}
-          setImages={setImages}
-          sortOption={sortOption}
-          setSortOption={setSortOption}
-        />
+      <TopBar>
 
-        {images.length > 0
-          ? (
-            <PhotoFeed
-              images={images}
-              loading={loading}
-              pageNumber={pageNumber}
-              setPageNumber={setPageNumber}
-              hasMore={hasMore}
-            />
-          )
-          : <Default>Choose a location and time to get a glimpse of the past</Default>}
+        <Middle>
+          <Title />
 
-        <ScrollButton />
-      </Container>
+          <SearchBar
+            searchDecade={searchDecade}
+            setSearchDecade={setSearchDecade}
+            searchCountry={searchCountry}
+            setSearchCountry={setSearchCountry}
+            setPageNumber={setPageNumber}
+            setImages={setImages}
+            sortOption={sortOption}
+            setSortOption={setSortOption}
+          />
+        </Middle>
+      </TopBar>
+
+      {images.length > 0
+        ? (
+          <PhotoFeed
+            images={images}
+            loading={loading}
+            pageNumber={pageNumber}
+            setPageNumber={setPageNumber}
+            hasMore={hasMore}
+          />
+        )
+        : <Default>Choose a location and time to get a glimpse of the past</Default>}
+
+      <ScrollButton />
+
     </div>
 
   );
