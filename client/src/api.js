@@ -2,7 +2,6 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable import/prefer-default-export */
 import axios from 'axios';
-import queryString from 'query-string';
 
 const victoriaAlbertImages = async (decade, country, page, sort) => {
   const startYear = Number(decade);

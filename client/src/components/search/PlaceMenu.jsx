@@ -6,7 +6,8 @@ import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
 
 const Form = styled(FormControl)`
-  width: 100px;
+  width: auto;
+  min-width: 150px;
   margin: 5px;
 `;
 

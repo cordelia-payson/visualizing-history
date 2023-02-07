@@ -7,7 +7,7 @@ const stylesHandler = 'style-loader';
 
 module.exports = {
   mode: 'development',
-  entry: './client/src/index.js',
+  entry: './client/src/index.jsx',
   output: {
     path: path.join(__dirname, 'client/public'),
     filename: 'bundle.js',
