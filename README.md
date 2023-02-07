@@ -13,19 +13,20 @@ Visualizing History was created as a result of my strong desire for a reliabe so
 
 ## Search Options
 Users can choose a location and time period to sort by
-<img src="https://recordit.co/ilxxNJcJCI.gif" width="100%"/>
+![ezgif com-video-to-gif](https://user-images.githubusercontent.com/114250629/217316268-9d6bcdd1-f161-436e-937f-5ade32b1ddd1.gif)
+
 
 ## Visual Design
 A masonry style layout and infinte scroll allows users to seamlessly view all search results without any visual clutter
-<img src="https://recordit.co/QPT9tO2IYR.gif" width="100%"/>
+
 
 ## Image Information
 Click on an image to get basic information and a link to the museum's page for the item
-<img src="https://recordit.co/h2uePXH6B0.gif" width="100%"/>
+
 
 ## Universal Viewer
 Some items can be viewed with Universal Viewer which allows users to zoom in images
-<img src="https://recordit.co/phXIMhuyNg.gif" width="100%"/>
+
 
 ## Future Improvements
 - Allow users to login and save images
