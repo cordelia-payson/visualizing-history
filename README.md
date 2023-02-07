@@ -18,7 +18,7 @@ Users can choose a location and time period to sort by
 
 ## Visual Design
 A masonry style layout and infinite scroll allows users to seamlessly view all search results without any visual clutter
-
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/114250629/217333998-5ae829cf-03cc-45b4-9de9-391949aa0685.gif)
 <br>
 
 ## Image Information
