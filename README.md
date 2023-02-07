@@ -13,12 +13,13 @@ Visualizing History was created as a result of my strong desire for a reliabe so
 
 ## Search Options
 Users can choose a location and time period to sort by
-![ezgif com-video-to-gif](https://user-images.githubusercontent.com/114250629/217316268-9d6bcdd1-f161-436e-937f-5ade32b1ddd1.gif)
-
+![Screen Shot 2023-02-07 at 12 17 48 PM](https://user-images.githubusercontent.com/114250629/217316830-e9946e23-557e-4850-a1cd-aec68d899ce4.png)
+<br>
 
 ## Visual Design
 A masonry style layout and infinte scroll allows users to seamlessly view all search results without any visual clutter
-
+![ezgif com-video-to-gif (1)](https://user-images.githubusercontent.com/114250629/217316432-937e0269-bf82-4f0f-b1ad-b62e045b4383.gif)
+<br>
 
 ## Image Information
 Click on an image to get basic information and a link to the museum's page for the item
@@ -31,5 +32,5 @@ Some items can be viewed with Universal Viewer which allows users to zoom in ima
 ## Future Improvements
 - Allow users to login and save images
 - Incorporate results from other museums
-- Increase loading quality and speed of images
+- Improve image loading speeds
 
