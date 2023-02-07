@@ -17,20 +17,22 @@ Users can choose a location and time period to sort by
 <br>
 
 ## Visual Design
-A masonry style layout and infinte scroll allows users to seamlessly view all search results without any visual clutter
+A masonry style layout and infinite scroll allows users to seamlessly view all search results without any visual clutter
 ![ezgif com-video-to-gif (1)](https://user-images.githubusercontent.com/114250629/217316432-937e0269-bf82-4f0f-b1ad-b62e045b4383.gif)
 <br>
 
 ## Image Information
 Click on an image to get basic information and a link to the museum's page for the item
-
+![ezgif com-video-to-gif (2)](https://user-images.githubusercontent.com/114250629/217318607-3e3f9a66-90ce-4ed4-8b20-fbbbcca2c4d0.gif)
+<br>
 
 ## Universal Viewer
-Some items can be viewed with Universal Viewer which allows users to zoom in images
-
+Some items can be viewed with Universal Viewer, which allows users to zoom in on images
+![ezgif com-video-to-gif (3)](https://user-images.githubusercontent.com/114250629/217319303-3721ef95-c818-4456-bfc3-0b7987ea62bc.gif)
+<br>
 
 ## Future Improvements
-- Allow users to login and save images
+- Allow users to log in and save images
 - Incorporate results from other museums
 - Improve image loading speeds
 
